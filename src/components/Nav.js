@@ -1,24 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
     return (
         <>
-            <Nav className="justify-content-end" activeKey="/home">
-                <Nav.Item>
-                    <Nav.Link href="/walkthroughs">Walkthroughs</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">My Walkthroughs</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-2">Sign In</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="disabled" disabled>
-                        Disabled
-                    </Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <h1>trail</h1>
+            <ul>
+                <Link>Home</Link>
+                <Link>My Portfolio</Link>
+                <Link>Login</Link>
+                <Link>Logout</Link>
+            </ul>
         </>
     );
 };
