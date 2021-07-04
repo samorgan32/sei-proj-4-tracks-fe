@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel'
 const ViewWalkthrough = () => {
     return (
         <div>
-            <Carousel>
+            <Carousel interval={null}>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
@@ -19,7 +19,7 @@ const ViewWalkthrough = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src=""
+                        src="https://images.unsplash.com/photo-1444044205806-38f3ed106c10?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTN8MjU2MDE3fHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
                         alt="Second slide"
                     />
 
@@ -31,7 +31,7 @@ const ViewWalkthrough = () => {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src=""
+                        src="https://images.unsplash.com/photo-1439508472515-4899b144f04d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8MjU2MDE3fHxlbnwwfHx8fA%3D%3D&dpr=2&auto=format&fit=crop&w=291.2&q=60"
                         alt="Third slide"
                     />
 

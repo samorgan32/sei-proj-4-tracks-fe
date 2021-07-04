@@ -35,7 +35,7 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs }) => {
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Link to='/walkthroughs/play'>
+                    <Link to='/walkthroughs/view'>
                         <Button variant="primary">View Walkthrough</Button>
                     </Link>
                     <Button>
