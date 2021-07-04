@@ -7,6 +7,7 @@ import {
   ViewWalkthrough,
   Walkthrough,
   WalkthroughEdit,
+  LoginForm
 } from './components'
 
 function App() {
@@ -16,13 +17,33 @@ function App() {
 
 
       <Nav />
+      <Switch>
 
-      {/* <Route exact path='/walkthroughs'>
+        <Route exact path='/'>
+          <Redirect to='/login' />
+        </Route>
+
+        <Route path='/signup' />
+
+        <Route path='/login'>
+          <LoginForm />
+        </Route>
+
+        <Route exact path='/walkthroughs'>
           <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
-        </Route> */}
+        </Route>
+
+        <Route path='/walkthroughs/edit'>
+          <SlideEdit />
+        </Route>
+
+        <Route exact path='/walkthroughs/view'>
+          <ViewWalkthrough />
+        </Route>
+
+      </Switch>
 
 
-      <ViewWalkthrough />
 
 
     </div>

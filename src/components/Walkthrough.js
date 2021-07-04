@@ -27,6 +27,7 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs }) => {
 
             <h1>Walkthroughs</h1>
 
+
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={slideImage} />
                 <Card.Body>
