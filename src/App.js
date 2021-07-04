@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
 import {
-  Home,
   Nav,
   SlideEdit,
   ViewWalkthrough,
@@ -13,7 +12,9 @@ function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
   return (
     <div className="App">
-      <Home walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
+      <Nav />
+
+      <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
     </div>
   );
 }

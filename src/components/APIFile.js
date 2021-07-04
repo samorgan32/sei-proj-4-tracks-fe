@@ -1,6 +1,12 @@
 const url = 'http://localhost:8000/';
 
+export const signup = () => {
 
+}
+
+export const signin = () => {
+
+}
 
 export const showWalkthroughs = (setWalkthroughs, setError) => {
     fetch(`${url}walkthroughs`)
@@ -9,3 +15,26 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
         // .then((data) => setWalkthroughs(data))
         .catch(() => setError(true))
 }
+
+export const createWalkthrough = () => {
+
+}
+
+export const deleteWalkthrough = () => {
+
+}
+
+export const addSlide = () => {
+
+}
+
+export const editSlide = () => {
+
+}
+
+export const deleteSlide = () => {
+
+}
+
+
+
