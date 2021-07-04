@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import * as api from './APIFile';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -33,7 +34,9 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs }) => {
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Button variant="primary">View Walkthrough</Button>
+                    <Link to='/walkthroughs/play'>
+                        <Button variant="primary">View Walkthrough</Button>
+                    </Link>
                     <Button>
                         Edit Walkthrough
                     </Button>

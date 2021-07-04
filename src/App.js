@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom';
 import {
   Nav,
   SlideEdit,
@@ -12,9 +13,18 @@ function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
   return (
     <div className="App">
+
+
       <Nav />
 
-      <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
+      {/* <Route exact path='/walkthroughs'>
+          <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
+        </Route> */}
+
+
+      <ViewWalkthrough />
+
+
     </div>
   );
 }
