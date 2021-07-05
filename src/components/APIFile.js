@@ -66,6 +66,7 @@ export const createWalkthrough = (walkthrough, setError) => {
         body: JSON.stringify(walkthrough),
     })
         .then((res) => res.json())
+        .then((res) => console.log(res))
         .catch(() => setError(true))
 
 }

@@ -58,6 +58,10 @@ function App() {
           <ViewWalkthrough activeWalkthrough={activeWalkthrough} view={view} setView={setView} />
         </Route>
 
+        <Route>
+          <WalkthroughEdit />
+        </Route>
+
       </Switch>
 
 
