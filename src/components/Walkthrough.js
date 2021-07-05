@@ -40,13 +40,19 @@ const samples = [
 
 // const slideImage = ''
 
-const Walkthrough = ({ walkthroughs, setWalkthroughs }) => {
+const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) => {
 
     const [error, setError] = useState(false);
 
     useEffect(() => {
         api.showWalkthroughs(setWalkthroughs, setError);
     }, []);
+
+
+    function handleClick(event) {
+        setActiveWalkthrough(event.target.id)
+    }
+
 
     console.log(walkthroughs)
 
@@ -56,20 +62,23 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs }) => {
             <h1>Walkthroughs</h1>
 
 
-            {samples.map((card) => {
+            {walkthroughs.map((card) => {
                 return (
                     <div>
 
 
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={card.slideImages[0]} />
+                            <Card.Img variant="top" src={card.cover_slide} />
                             <Card.Body>
                                 <Card.Title>{card.title}</Card.Title>
                                 <Card.Text>
-                                    {card.description}
+                                    Created: {card.date_created}
                                 </Card.Text>
-                                <Link to='/walkthroughs/view'>
-                                    <Button variant="primary">View Walkthrough</Button>
+                                <Link
+                                    to='/walkthroughs/view'
+                                    onClick={handleClick}
+                                >
+                                    <Button id={card.id} variant="primary">View Walkthrough</Button>
                                 </Link>
                                 <Link to='/walkthroughs/edit'>
                                     <Button>

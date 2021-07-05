@@ -37,8 +37,8 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
 
     })
         .then((res) => res.json())
-        .then((data) => console.log(data))
-        // .then((data) => setWalkthroughs(data))
+        // .then((data) => console.log(data))
+        .then((data) => setWalkthroughs(data))
         .catch(() => setError(true))
 }
 
@@ -47,7 +47,7 @@ export const createWalkthrough = (walkthrough, setError) => {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
-            Authorization: `Bearer ${token}`,
+            Authorization: `Token ${token}`,
         },
         body: JSON.stringify(walkthrough),
     })

@@ -1,5 +1,3 @@
-import userEvent from '@testing-library/user-event';
-import { setUseProxies } from 'immer';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import * as api from './APIFile'

@@ -1,10 +1,14 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
-const ViewWalkthrough = () => {
+const ViewWalkthrough = ({ activeWalkthrough }) => {
     return (
         <div>
-            <Carousel interval={null}>
+
+
+
+
+            {/* <Carousel interval={null}>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
@@ -40,7 +44,7 @@ const ViewWalkthrough = () => {
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-            </Carousel>
+            </Carousel> */}
         </div>
     );
 };

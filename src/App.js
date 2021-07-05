@@ -12,6 +12,7 @@ import {
 
 function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
+  const [activeWalkthrough, setActiveWalkthrough] = useState({})
   const [user, setUser] = useState({ email: '', password: '' })
   const [activeUser, setActiveUser] = useState('')
 
@@ -45,7 +46,7 @@ function App() {
         />
 
         <Route exact path='/walkthroughs'>
-          <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
+          <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} activeWalkthrough={activeWalkthrough} setActiveWalkthrough={setActiveWalkthrough} />
         </Route>
 
         <Route path='/walkthroughs/edit'>
@@ -53,7 +54,7 @@ function App() {
         </Route>
 
         <Route exact path='/walkthroughs/view'>
-          <ViewWalkthrough />
+          <ViewWalkthrough activeWalkthrough={activeWalkthrough} />
         </Route>
 
       </Switch>
