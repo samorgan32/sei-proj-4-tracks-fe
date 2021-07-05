@@ -24,19 +24,35 @@ export const signIn = (user, setError) => {
         body: JSON.stringify(user),
     })
         .then((res) => res.json())
-        .then((res) => console.log(res))
         .catch(() => setError(true))
 }
 
 export const showWalkthroughs = (setWalkthroughs, setError) => {
-    fetch(`${url}walkthroughs`)
+    fetch(`${url}walkthroughs`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `${token}`
+        }
+
+    })
         .then((res) => res.json())
         .then((data) => console.log(data))
         // .then((data) => setWalkthroughs(data))
         .catch(() => setError(true))
 }
 
-export const createWalkthrough = () => {
+export const createWalkthrough = (walkthrough, setError) => {
+    return fetch(`${url}walkthroughs`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(walkthrough),
+    })
+        .then((res) => res.json())
+        .catch(() => setError(true))
 
 }
 

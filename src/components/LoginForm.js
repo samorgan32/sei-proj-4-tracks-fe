@@ -15,7 +15,7 @@ const LoginForm = ({ user, setUser, setActiveUser }) => {
     const handleSignIn = async (event) => {
         event.preventDefault()
         let data = await api.signIn(user, setError)
-        // setActiveUser(data ? JSON.parse(atob(data.auth_token.split('.')[1])).id : null)
+        console.log(user)
         if (!data) {
             return null
         } else {
