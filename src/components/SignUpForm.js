@@ -8,7 +8,7 @@ const SignUpForm = ({ user, setUser }) => {
     const [error, setError] = useState(false)
 
     const handleChange = (event) => {
-        setUser({ ...userEvent, [event.target.id]: event.target.value })
+        setUser({ ...user, [event.target.id]: event.target.value })
     }
 
     let history = useHistory()

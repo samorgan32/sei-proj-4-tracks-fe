@@ -32,7 +32,7 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
         method: 'GET',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
-            Authorization: `${token}`
+            Authorization: `Token ${token}`
         }
 
     })
