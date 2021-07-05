@@ -11,11 +11,12 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
         api.viewWalkthrough(activeWalkthrough, setView, setError);
     }, []);
 
+
+    console.log(view)
+
     if (!view) {
         return null
     }
-
-    console.log(view)
 
     return (
         <div>
@@ -23,17 +24,17 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
             <h3>Created: {view.date_created}</h3>
 
             <Carousel interval={null}>
-                {view.slide_images.map((image) => {
+                {view.slides.map((slide) => {
                     return (
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src={image}
-                                alt="slide"
+                                src={slide.image}
+                                alt={`slide# ${slide.postion}`}
                             />
                             <Carousel.Caption>
-                                <h3>slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <h3>slide# {slide.position}</h3>
+                                <p>{slide.description}</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     )
