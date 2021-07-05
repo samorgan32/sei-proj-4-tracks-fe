@@ -6,7 +6,7 @@ const Nav = () => {
         <>
             <h1>trail</h1>
             <ul>
-                <Link>Home</Link>
+                <Link to='/walkthroughs'>Home</Link>
                 <Link>My Portfolio</Link>
                 <Link>Login</Link>
                 <Link>Logout</Link>

@@ -3,15 +3,18 @@ import React, { useState } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom';
 import {
   Nav,
-  SlideEdit,
   ViewWalkthrough,
   Walkthrough,
   WalkthroughEdit,
-  LoginForm
+  LoginForm,
+  SignUpForm
 } from './components'
 
 function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
+  const [user, setUser] = useState({ email: '', password: '' })
+  const [activeUser, setActiveUser] = useState('')
+
   return (
     <div className="App">
 
@@ -19,22 +22,34 @@ function App() {
       <Nav />
       <Switch>
 
+        <Route
+          path='/signup'
+          render={(routerProps) => <SignUpForm user={user} setUser={setUser} />}
+        />
+
         <Route exact path='/'>
           <Redirect to='/login' />
         </Route>
 
-        <Route path='/signup' />
 
-        <Route path='/login'>
-          <LoginForm />
-        </Route>
+        <Route
+          path='/login'
+          render={(routerProps) => (
+            <LoginForm
+              user={user}
+              setUser={setUser}
+              setActiveUser={setActiveUser}
+              activeUser={activeUser}
+            />
+          )}
+        />
 
         <Route exact path='/walkthroughs'>
           <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} />
         </Route>
 
         <Route path='/walkthroughs/edit'>
-          <SlideEdit />
+          <WalkthroughEdit />
         </Route>
 
         <Route exact path='/walkthroughs/view'>

@@ -1,11 +1,31 @@
 const url = 'http://localhost:8000/';
 
-export const signup = () => {
+const token = localStorage.getItem('token')
 
-}
+export const signUp = (user, setError) => {
+    fetch(`${url}users`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(user),
+    })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch(() => setError(true));
+};
 
-export const signin = () => {
-
+export const signIn = (user, setError) => {
+    return fetch(`${url}token/login`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(user),
+    })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch(() => setError(true))
 }
 
 export const showWalkthroughs = (setWalkthroughs, setError) => {
