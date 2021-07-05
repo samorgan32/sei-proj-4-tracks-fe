@@ -13,6 +13,7 @@ import {
 function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
   const [activeWalkthrough, setActiveWalkthrough] = useState({})
+  const [view, setView] = useState({})
   const [user, setUser] = useState({ email: '', password: '' })
   const [activeUser, setActiveUser] = useState('')
 
@@ -54,7 +55,7 @@ function App() {
         </Route>
 
         <Route exact path='/walkthroughs/view'>
-          <ViewWalkthrough activeWalkthrough={activeWalkthrough} />
+          <ViewWalkthrough activeWalkthrough={activeWalkthrough} view={view} setView={setView} />
         </Route>
 
       </Switch>

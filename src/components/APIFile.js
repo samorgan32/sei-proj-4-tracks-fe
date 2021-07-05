@@ -42,6 +42,20 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
         .catch(() => setError(true))
 }
 
+export const viewWalkthrough = (activeWalkthrough, setView, setError) => {
+    fetch(`${url}walkthroughs/${activeWalkthrough}`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Token ${token}`
+        }
+
+    })
+        .then((res) => res.json())
+        .then((data) => setView(data))
+        .catch(() => setError(true))
+}
+
 export const createWalkthrough = (walkthrough, setError) => {
     return fetch(`${url}walkthroughs`, {
         method: 'POST',

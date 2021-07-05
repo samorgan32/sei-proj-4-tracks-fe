@@ -1,9 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
+import { viewWalkthrough } from './APIFile';
+import * as api from './APIFile'
 
-const ViewWalkthrough = ({ activeWalkthrough }) => {
+const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
+
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        api.viewWalkthrough(activeWalkthrough, setView, setError);
+    }, []);
+
+    if (!view) {
+        return null
+    }
+
+    console.log(view)
+
     return (
         <div>
+            <h2>{view.title}</h2>
+            <h3>Created: {view.date_created}</h3>
+
+            <Carousel interval={null}>
+                {view.slide_images.map((image) => {
+                    return (
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src={image}
+                                alt="slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>slide label</h3>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    )
+
+                })}
+            </Carousel>
+
+
+
 
 
 
