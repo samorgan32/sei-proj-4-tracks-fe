@@ -31,6 +31,10 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
 
             <h1>Walkthroughs</h1>
 
+            <Link to='/walkthroughs/new'>
+                <Button>Create New Walkthrough</Button>
+            </Link>
+
 
             {walkthroughs.map((card) => {
                 return (
@@ -50,7 +54,7 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
                                 >
                                     <Button id={card.id} variant="primary">View Walkthrough</Button>
                                 </Link>
-                                <Link to='/walkthroughs/edit'>
+                                <Link to={`/walkthroughs/edit/${card.id}`}>
                                     <Button>
                                         Edit Walkthrough
                                     </Button>
@@ -65,8 +69,7 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
             })}
 
 
-
-        </div>
+        </div >
     );
 };
 

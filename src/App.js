@@ -5,6 +5,7 @@ import {
   Nav,
   ViewWalkthrough,
   Walkthrough,
+  NewWalkthrough,
   WalkthroughEdit,
   LoginForm,
   SignUpForm
@@ -50,9 +51,13 @@ function App() {
           <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} activeWalkthrough={activeWalkthrough} setActiveWalkthrough={setActiveWalkthrough} />
         </Route>
 
+        <Route path='/walkthroughs/new'>
+          <NewWalkthrough />
+        </Route>
+
         <Route path='/walkthroughs/edit/:id' render={(routerProps) => (
 
-          <WalkthroughEdit match={routerProps.match} />
+          <WalkthroughEdit walkthroughs={walkthroughs} match={routerProps.match} />
         )}>
         </Route>
 

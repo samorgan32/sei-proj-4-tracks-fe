@@ -42,6 +42,22 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
         .catch(() => setError(true))
 }
 
+export const walkthroughDetail = (params, setWalkthroughs, setError) => {
+    fetch(`${url}walkthroughs/${params.id}`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Token ${token}`
+        }
+
+    })
+        .then((res) => res.json())
+        // .then((data) => console.log(data))
+        .then((data) => setWalkthroughs(data))
+        .catch(() => setError(true))
+
+}
+
 export const viewWalkthrough = (activeWalkthrough, setView, setError) => {
     fetch(`${url}walkthroughs/${activeWalkthrough}`, {
         method: 'GET',
@@ -65,23 +81,21 @@ export const createWalkthrough = (walkthrough, setError) => {
         body: walkthrough,
     })
         .then((res) => res.json())
-        .then((res) => console.log(res))
         .catch(() => setError(true))
 
 }
 
-// export const deleteWalkthrough = () => {
-//     fetch(`${url}walkthroughs`, {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-type': 'application/json; charset=UTF-8',
-//             Authorization: `Token ${token}`
-//         }
-//     })
-//         .then(history.push('/walkthroughs'))
-//         .catch(() => setError(true))
+export const deleteWalkthrough = (history, setError) => {
+    fetch(`${url}walkthroughs`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token ${token}`
+        }
+    })
+        .then(history.push('/walkthroughs'))
+        .catch(() => setError(true))
 
-// }
+}
 
 export const addSlide = () => {
 
