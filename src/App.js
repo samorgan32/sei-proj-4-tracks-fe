@@ -52,7 +52,7 @@ function App() {
 
         <Route path='/walkthroughs/edit/:id' render={(routerProps) => (
 
-          <WalkthroughEdit match={match} />
+          <WalkthroughEdit match={routerProps.match} />
         )}>
         </Route>
 

@@ -10,36 +10,39 @@ import * as api from './APIFile'
 const WalkthroughEdit = () => {
     let history = useHistory()
     const [error, setError] = useState(false)
-    const [walkthrough, setWalkthrough] = useState({ title: '', cover: '' })
+    const [walkthrough, setWalkthrough] = useState({ title: '', cover_slide: '' })
 
     const handleChange = (event) => {
         setWalkthrough({ ...walkthrough, [event.target.id]: event.target.value })
     }
 
     const handleWalkthroughCreate = async (event) => {
-        event.preventDefaut()
-        await api.createWalkthrough()
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        console.log(event.target)
+        console.log(walkthrough)
+        await api.createWalkthrough(formData, setError)
         history.push('/walkthroughs')
     }
 
-    const handleDelete = async (event) => {
-        event.preventDefault()
-        await api.deleteWalkthrough()
-        history.push('/walkthroughs')
-    }
+    // const handleDelete = async (event) => {
+    //     event.preventDefault()
+    //     await api.deleteWalkthrough()
+    //     history.push('/walkthroughs')
+    // }
 
 
     return (
         <div>
             <form onSubmit={handleWalkthroughCreate}>
                 <label htmlFor="title">Title</label>
-                <input id='title' type='text' onChange={handleChange} />
-                <label htmlFor="coverSlide">Cover Slide</label>
-                <input type='file' id='cover' onChange={handleChange} />
+                <input id='title' name='title' type='text' onChange={handleChange} />
+                <label htmlFor="cover_slide">Cover Slide</label>
+                <input type='file' id='cover_slide' name='cover_slide' onChange={handleChange} />
                 <button type='submit'> Submit</button>
             </form>
 
-            <button onClick={handleDelete}>Delete Walkthrough</button>
+            {/* <button onClick={handleDelete}>Delete Walkthrough</button> */}
         </div>
     );
 };

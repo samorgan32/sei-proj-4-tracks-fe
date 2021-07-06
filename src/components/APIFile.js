@@ -57,13 +57,12 @@ export const viewWalkthrough = (activeWalkthrough, setView, setError) => {
 }
 
 export const createWalkthrough = (walkthrough, setError) => {
-    return fetch(`${url}walkthroughs`, {
+    return fetch(`${url}walkthroughs/`, {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
             Authorization: `Token ${token}`,
         },
-        body: JSON.stringify(walkthrough),
+        body: walkthrough,
     })
         .then((res) => res.json())
         .then((res) => console.log(res))
@@ -71,18 +70,18 @@ export const createWalkthrough = (walkthrough, setError) => {
 
 }
 
-export const deleteWalkthrough = () => {
-    fetch(`${url}walkthroughs`, {
-        method: 'DELETE',
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-            Authorization: `Token ${token}`
-        }
-    })
-        .then(history.push('/walkthroughs'))
-        .catch(() => setError(true))
+// export const deleteWalkthrough = () => {
+//     fetch(`${url}walkthroughs`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//             Authorization: `Token ${token}`
+//         }
+//     })
+//         .then(history.push('/walkthroughs'))
+//         .catch(() => setError(true))
 
-}
+// }
 
 export const addSlide = () => {
 
