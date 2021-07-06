@@ -19,9 +19,10 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
         setActiveWalkthrough(event.target.id)
     }
 
-    function handleEdit(event) {
+    const handleEdit = (event) => {
 
     }
+
 
 
     console.log(walkthroughs)

@@ -42,7 +42,7 @@ export const showWalkthroughs = (setWalkthroughs, setError) => {
         .catch(() => setError(true))
 }
 
-export const walkthroughDetail = (params, setWalkthroughs, setError) => {
+export const editWalkthrough = (params, setWalkthroughDetail, setError) => {
     fetch(`${url}walkthroughs/${params.id}`, {
         method: 'GET',
         headers: {
@@ -53,7 +53,7 @@ export const walkthroughDetail = (params, setWalkthroughs, setError) => {
     })
         .then((res) => res.json())
         // .then((data) => console.log(data))
-        .then((data) => setWalkthroughs(data))
+        .then((data) => setWalkthroughDetail(data))
         .catch(() => setError(true))
 
 }

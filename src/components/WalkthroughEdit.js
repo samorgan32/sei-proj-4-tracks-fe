@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import * as api from './APIFile'
-
 
 
 
@@ -12,7 +11,14 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
     let params = useParams()
     const [error, setError] = useState(false)
     const [walkthrough, setWalkthrough] = useState({ title: '', cover_slide: '' })
+    const [walkthroughDetail, setWalkthroughDetail] = useState({})
 
+
+    useEffect(() => {
+        api.editWalkthrough(params, setWalkthroughDetail, setError);
+    }, []);
+
+    console.log(walkthroughDetail)
 
     const handleDelete = async (event) => {
         event.preventDefault()
@@ -23,8 +29,22 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
 
     return (
         <div>
+            <h2>{walkthroughDetail.title}</h2>
+
             <div>
-                {walkthroughs.map((walkthrough) => {
+                {walkthroughDetail.slides.map((slide) => {
+                    return (
+                        <div>
+                            <h2>{slide.position}</h2>
+                            <img src={slide.image} alt="" />
+                            <p>{slide.description}</p>
+                        </div>
+                    )
+                })}
+
+            </div>
+            {/* <div>
+                {walkthroughDetail.map((walkthrough) => {
                     return (
                         <div>
                             <h2>{walkthrough.title}</h2>
@@ -32,7 +52,7 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
                         </div>
                     )
                 })}
-            </div>
+            </div> */}
 
             <div>
                 {/* <form onSubmit={handleWalkthroughCreate}>
