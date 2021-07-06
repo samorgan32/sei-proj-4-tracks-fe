@@ -72,6 +72,15 @@ export const createWalkthrough = (walkthrough, setError) => {
 }
 
 export const deleteWalkthrough = () => {
+    fetch(`${url}walkthroughs`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            Authorization: `Token ${token}`
+        }
+    })
+        .then(history.push('/walkthroughs'))
+        .catch(() => setError(true))
 
 }
 

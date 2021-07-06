@@ -50,8 +50,10 @@ function App() {
           <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} activeWalkthrough={activeWalkthrough} setActiveWalkthrough={setActiveWalkthrough} />
         </Route>
 
-        <Route path='/walkthroughs/edit'>
-          <WalkthroughEdit />
+        <Route path='/walkthroughs/edit/:id' render={(routerProps) => (
+
+          <WalkthroughEdit match={match} />
+        )}>
         </Route>
 
         <Route exact path='/walkthroughs/view'>

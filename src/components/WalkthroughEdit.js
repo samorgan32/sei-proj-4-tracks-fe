@@ -22,6 +22,12 @@ const WalkthroughEdit = () => {
         history.push('/walkthroughs')
     }
 
+    const handleDelete = async (event) => {
+        event.preventDefault()
+        await api.deleteWalkthrough()
+        history.push('/walkthroughs')
+    }
+
 
     return (
         <div>
@@ -32,6 +38,8 @@ const WalkthroughEdit = () => {
                 <input type='file' id='cover' onChange={handleChange} />
                 <button type='submit'> Submit</button>
             </form>
+
+            <button onClick={handleDelete}>Delete Walkthrough</button>
         </div>
     );
 };
