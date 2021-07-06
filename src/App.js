@@ -1,23 +1,72 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+  Nav,
+  ViewWalkthrough,
+  Walkthrough,
+  WalkthroughEdit,
+  LoginForm,
+  SignUpForm
+} from './components'
 
 function App() {
+  const [walkthroughs, setWalkthroughs] = useState([])
+  const [activeWalkthrough, setActiveWalkthrough] = useState({})
+  const [view, setView] = useState({})
+  const [user, setUser] = useState({ email: '', password: '' })
+  const [activeUser, setActiveUser] = useState('')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+      <Nav />
+      <Switch>
+
+        <Route
+          path='/signup'
+          render={(routerProps) => <SignUpForm user={user} setUser={setUser} />}
+        />
+
+        <Route exact path='/'>
+          <Redirect to='/login' />
+        </Route>
+
+
+        <Route
+          path='/login'
+          render={(routerProps) => (
+            <LoginForm
+              user={user}
+              setUser={setUser}
+              setActiveUser={setActiveUser}
+              activeUser={activeUser}
+            />
+          )}
+        />
+
+        <Route exact path='/walkthroughs'>
+          <Walkthrough walkthroughs={walkthroughs} setWalkthroughs={setWalkthroughs} activeWalkthrough={activeWalkthrough} setActiveWalkthrough={setActiveWalkthrough} />
+        </Route>
+
+        <Route path='/walkthroughs/edit'>
+          <WalkthroughEdit />
+        </Route>
+
+        <Route exact path='/walkthroughs/view'>
+          <ViewWalkthrough activeWalkthrough={activeWalkthrough} view={view} setView={setView} />
+        </Route>
+
+        <Route>
+          <WalkthroughEdit />
+        </Route>
+
+      </Switch>
+
+
+
+
     </div>
   );
 }
