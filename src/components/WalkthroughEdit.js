@@ -31,28 +31,23 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
         <div>
             <h2>{walkthroughDetail.title}</h2>
 
-            <div>
-                {walkthroughDetail.slides.map((slide) => {
-                    return (
-                        <div>
-                            <h2>{slide.position}</h2>
-                            <img src={slide.image} alt="" />
-                            <p>{slide.description}</p>
-                        </div>
-                    )
-                })}
 
-            </div>
-            {/* <div>
-                {walkthroughDetail.map((walkthrough) => {
-                    return (
-                        <div>
-                            <h2>{walkthrough.title}</h2>
-                            <img src={walkthrough.cover_slide} alt="" />
-                        </div>
-                    )
-                })}
-            </div> */}
+            {!walkthroughDetail.slides ? null : (
+                <div>
+
+                    {walkthroughDetail.slides.map((slide) => {
+                        return (
+                            <div>
+                                <h2>{slide.position}</h2>
+                                <img src={slide.image} alt="" />
+                                <p>{slide.description}</p>
+                            </div>
+                        )
+                    })}
+
+                </div>
+
+            )}
 
             <div>
                 {/* <form onSubmit={handleWalkthroughCreate}>

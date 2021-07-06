@@ -14,33 +14,35 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
 
     console.log(view)
 
-    if (!view) {
-        return null
-    }
+
 
     return (
         <div>
             <h2>{view.title}</h2>
             <h3>Created: {view.date_created}</h3>
 
-            <Carousel interval={null}>
-                {view.slides.map((slide) => {
-                    return (
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={slide.image}
-                                alt={`slide# ${slide.postion}`}
-                            />
-                            <Carousel.Caption>
-                                <h3>slide# {slide.position}</h3>
-                                <p>{slide.description}</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    )
+            {!view.slides ? null : (
 
-                })}
-            </Carousel>
+                <Carousel interval={null}>
+                    {view.slides.map((slide) => {
+                        return (
+                            <Carousel.Item>
+                                <img
+                                    className="d-block w-100"
+                                    src={slide.image}
+                                    alt={`slide# ${slide.postion}`}
+                                />
+                                <Carousel.Caption>
+                                    <h3>slide# {slide.position}</h3>
+                                    <p>{slide.description}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        )
+
+                    })}
+                </Carousel>
+            )}
+
 
 
 
