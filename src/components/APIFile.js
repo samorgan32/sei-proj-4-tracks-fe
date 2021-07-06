@@ -85,17 +85,18 @@ export const createWalkthrough = (walkthrough, setError) => {
 
 }
 
-export const deleteWalkthrough = (history, setError) => {
-    fetch(`${url}walkthroughs`, {
-        method: 'DELETE',
-        headers: {
-            Authorization: `Token ${token}`
-        }
-    })
-        .then(history.push('/walkthroughs'))
-        .catch(() => setError(true))
+// export const deleteWalkthrough = (history, params, setError) => {
+//     fetch(`${url}walkthroughs/${params.id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             Authorization: `Token ${token}`
+//         }
+//     })
+//         // .then(history.push('/walkthroughs'))
+//         .then(console.log(params.id))
+//         .catch(() => setError(true))
 
-}
+// }
 
 export const addSlide = () => {
 

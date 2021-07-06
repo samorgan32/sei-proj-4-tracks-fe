@@ -13,6 +13,10 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
     const [walkthrough, setWalkthrough] = useState({ title: '', cover_slide: '' })
     const [walkthroughDetail, setWalkthroughDetail] = useState({})
 
+    const url = 'http://localhost:8000/';
+
+    const token = localStorage.getItem('token')
+
 
     useEffect(() => {
         api.editWalkthrough(params, setWalkthroughDetail, setError);
@@ -20,19 +24,34 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
 
     console.log(walkthroughDetail)
 
-    const handleDelete = async (event) => {
-        event.preventDefault()
-        await api.deleteWalkthrough()
-        history.push('/walkthroughs')
+    // const handleDelete = async (event) => {
+    //     event.preventDefault()
+    //     await api.deleteWalkthrough(params, setError)
+    //     history.push('/walkthroughs')
+    // }
+
+    const walkthroughDelete = (history, setError) => {
+        fetch(`${url}walkthroughs/${params.id}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
+            // .then(history.push('/walkthroughs'))
+            .catch(() => setError(true))
+
     }
 
+    const handleDelete = (history) => {
+        walkthroughDelete()
+    }
 
     return (
         <div>
             <h2>{walkthroughDetail.title}</h2>
 
 
-            {!walkthroughDetail.slides ? null : (
+            {!walkthroughDetail.slides ? <h2>No SLides Available</h2> : (
                 <div>
 
                     {walkthroughDetail.slides.map((slide) => {

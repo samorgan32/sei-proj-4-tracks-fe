@@ -55,12 +55,6 @@ function App() {
           <NewWalkthrough />
         </Route>
 
-        {/* <Route path='/walkthroughs/edit/:id' render={(routerProps) => (
-
-          <WalkthroughEdit walkthroughs={walkthroughs} match={routerProps.match} />
-        )}>
-        </Route> */}
-
         <Route path='/walkthroughs/edit/:id'>
           <WalkthroughEdit walkthroughs={walkthroughs} />
         </Route>

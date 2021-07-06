@@ -21,7 +21,7 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
             <h2>{view.title}</h2>
             <h3>Created: {view.date_created}</h3>
 
-            {!view.slides ? null : (
+            {!view.slides ? <h2>No slides available</h2> : (
 
                 <Carousel interval={null}>
                     {view.slides.map((slide) => {
