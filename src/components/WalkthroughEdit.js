@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import NewSlide from './NewSlide';
 import * as api from './APIFile'
 
 
@@ -53,7 +54,10 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
         <div>
             <h2>{walkthroughDetail.title}</h2>
 
-            <button>Add New Slide</button>
+
+            <NewSlide />
+
+
             {!walkthroughDetail.slides ? <h2>No Slides Available</h2> : (
                 <div>
 
@@ -72,10 +76,6 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
                                     </Card.Body>
                                 </Card>
 
-                                {/* <h2>slide: {slide.position}</h2>
-                                <button id={slide.id}>Edit Slide</button>
-                                <img src={slide.image} alt="" />
-                                <p>{slide.description}</p> */}
                             </div>
                         )
                     })}

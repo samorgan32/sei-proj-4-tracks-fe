@@ -8,7 +8,9 @@ import {
   NewWalkthrough,
   WalkthroughEdit,
   LoginForm,
-  SignUpForm
+  SignUpForm,
+  SlideEdit,
+  NewSlide
 } from './components'
 
 function App() {
@@ -63,9 +65,9 @@ function App() {
           <ViewWalkthrough activeWalkthrough={activeWalkthrough} view={view} setView={setView} />
         </Route>
 
-        <Route>
-          <WalkthroughEdit />
-        </Route>
+        {/* <Route exact path='/newslide'>
+          <NewSlide />
+        </Route> */}
 
       </Switch>
 

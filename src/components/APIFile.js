@@ -111,7 +111,17 @@ export const updateWalkthrough = (params, walkthrough, setError) => {
         .catch(() => setError(true))
 }
 
-export const addSlide = () => {
+export const addSlide = (newSlide, setError) => {
+    return fetch(`${url}slides/`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Token ${token}`,
+        },
+        body: newSlide,
+    })
+        .then((res) => res.json())
+        // .then((res) => console.log(res))
+        .catch(() => setError(true))
 
 }
 
