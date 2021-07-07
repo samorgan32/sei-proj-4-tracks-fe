@@ -53,16 +53,29 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
         <div>
             <h2>{walkthroughDetail.title}</h2>
 
-
-            {!walkthroughDetail.slides ? <h2>No SLides Available</h2> : (
+            <button>Add New Slide</button>
+            {!walkthroughDetail.slides ? <h2>No Slides Available</h2> : (
                 <div>
 
                     {walkthroughDetail.slides.map((slide) => {
                         return (
                             <div>
-                                <h2>{slide.position}</h2>
+
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Body>
+                                        <Card.Title>Slide {slide.position}</Card.Title>
+                                        <Card.Img variant="top" src={slide.image} />
+                                        <Card.Text>
+                                            {slide.description}
+                                        </Card.Text>
+                                        <Button variant="primary">Edit Slide</Button>
+                                    </Card.Body>
+                                </Card>
+
+                                {/* <h2>slide: {slide.position}</h2>
+                                <button id={slide.id}>Edit Slide</button>
                                 <img src={slide.image} alt="" />
-                                <p>{slide.description}</p>
+                                <p>{slide.description}</p> */}
                             </div>
                         )
                     })}
