@@ -129,9 +129,16 @@ export const editSlide = () => {
 
 }
 
-export const deleteSlide = () => {
+// export const deleteSlide = (slideDelete, setError) => {
+//     return fetch(`${url}slides/${slideDelete}`, {
+//         method: 'DELETE',
+//         headers: {
+//             Authorization: `Token ${token}`
+//         }
+//     })
+//         .catch(() => setError(true))
 
-}
+// }
 
 
 

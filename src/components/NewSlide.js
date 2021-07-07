@@ -25,22 +25,9 @@ const NewSlide = ({ walkthroughDetail }) => {
         event.preventDefault()
         const formData = new FormData(event.target)
         await api.addSlide(formData, setError)
-        // setShow(false)
+        setShow(false)
     }
 
-    // const createNewSlide = (newSlide, setError) => {
-    //     return fetch(`${url}slides/`, {
-    //         method: 'POST',
-    //         headers: {
-    //             Authorization: `Token ${token}`,
-    //         },
-    //         body: newSlide,
-    //     })
-    //         .then((res) => res.json())
-    //         .then((res) => console.log(res))
-    //         .catch(() => setError(true))
-
-    // }
 
 
     return (

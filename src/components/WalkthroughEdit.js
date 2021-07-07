@@ -15,9 +15,9 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
     const [walkthrough, setWalkthrough] = useState({ title: '', cover_slide: '' })
     const [walkthroughDetail, setWalkthroughDetail] = useState({})
     const [show, setShow] = useState(false)
-
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+    const [slideDelete, setSlideDelete] = useState({})
 
     const url = 'http://localhost:8000/';
 
@@ -28,7 +28,7 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
         api.editWalkthrough(params, setWalkthroughDetail, setError);
     }, []);
 
-    const walkthroughDelete = (history, setError) => {
+    const walkthroughDelete = (setError) => {
         fetch(`${url}walkthroughs/${params.id}`, {
             method: 'DELETE',
             headers: {
@@ -53,6 +53,24 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
 
     const handleDelete = (history) => {
         walkthroughDelete()
+    }
+
+    const deleteSlide = (slideDelete, setError) => {
+        return fetch(`${url}slides/${slideDelete}/`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
+            .catch(() => setError(true))
+
+    }
+
+    const selectSlideDelete = (event) => {
+        setSlideDelete(event.target.id)
+        deleteSlide(slideDelete, setError)
+        console.log(slideDelete)
+        // api.deleteSlide(slideDelete, setError)
     }
 
     return (
@@ -104,6 +122,7 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
                                             {slide.description}
                                         </Card.Text>
                                         <Button variant="primary">Edit Slide</Button>
+                                        <Button variant="primary" id={slide.id} onClick={selectSlideDelete}>Delete Slide</Button>
                                     </Card.Body>
                                 </Card>
 
