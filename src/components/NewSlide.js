@@ -57,7 +57,7 @@ const NewSlide = ({ walkthroughDetail }) => {
                         <Modal.Title>Create New Slide</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form action="">
+                        <form onSubmit={createNewSlide}>
                             <label htmlFor="description">Description</label>
                             <input id='description' name='description' type='text' onChange={handleChange} />
                             <label htmlFor="image">Image</label>
@@ -66,16 +66,16 @@ const NewSlide = ({ walkthroughDetail }) => {
                             <input id='position' name='position' type="text" />
                             <label htmlFor="walkthrough">Walkthrough ID</label>
                             <input id='walkthrough' name='walkthrough' type="text" value={params.id} readOnly='false' />
-                            {/* <button type='submit' onSubmit={createNewSlide}> Submit</button> */}
+                            <button type='submit'> Submit</button>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={createNewSlide}>
+                        {/* <Button variant="primary" onClick={createNewSlide}>
                             Save Changes
-                        </Button>
+                        </Button> */}
                     </Modal.Footer>
                 </Modal>
             </div>
