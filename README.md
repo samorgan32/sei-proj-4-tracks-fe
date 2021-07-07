@@ -33,22 +33,16 @@ as a user I want to...
 - AWS 
 - JWT Authentication
 
-# Components
-- Home
-    -  Walkthrough
-        - Walkthrough Edit
-        - Walkthrough Display
-- Login
 
 # Models 
 - User
-    email
+    - email
 - Walkthrough
-    Name
-    Slides
+    - Name
+    - Slides
 - Slide
-    image
-    help text
-    Walkthrough
+    - image
+    - help text
+    - Walkthrough
 
 
