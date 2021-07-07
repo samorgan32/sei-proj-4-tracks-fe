@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import NewSlide from './NewSlide';
+import SlideEdit from './SlideEdit'
 import * as api from './APIFile'
 
 
@@ -121,7 +122,7 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
                                         <Card.Text>
                                             {slide.description}
                                         </Card.Text>
-                                        <Button variant="primary">Edit Slide</Button>
+                                        <SlideEdit />
                                         <Button variant="primary" id={slide.id} onClick={selectSlideDelete}>Delete Slide</Button>
                                     </Card.Body>
                                 </Card>

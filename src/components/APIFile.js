@@ -125,7 +125,17 @@ export const addSlide = (newSlide, setError) => {
 
 }
 
-export const editSlide = () => {
+export const editSlide = (slideUpdates, slideToEdit, setError) => {
+    fetch(`${url}slides/${slideToEdit}/`, {
+        method: 'PATCH',
+        headers: {
+            Authorization: `Token ${token}`
+        },
+        body: slideUpdates
+    })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch(() => setError(true))
 
 }
 
