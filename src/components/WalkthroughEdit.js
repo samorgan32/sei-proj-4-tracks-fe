@@ -34,6 +34,17 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
 
     }
 
+    const handleChange = (event) => {
+        setWalkthrough({ ...walkthrough, [event.target.id]: event.target.value })
+    }
+
+    const updateWalkthrough = async (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        await api.updateWalkthrough(params, formData, walkthrough, setError)
+
+    }
+
     const handleDelete = (history) => {
         walkthroughDelete()
     }
@@ -61,13 +72,13 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
             )}
 
             <div>
-                {/* <form onSubmit={handleWalkthroughCreate}>
+                <form onSubmit={updateWalkthrough}>
                     <label htmlFor="title">Title</label>
                     <input id='title' name='title' type='text' onChange={handleChange} />
                     <label htmlFor="cover_slide">Cover Slide</label>
                     <input type='file' id='cover_slide' name='cover_slide' onChange={handleChange} />
                     <button type='submit'> Submit</button>
-                </form> */}
+                </form>
 
                 <button onClick={handleDelete}>Delete Walkthrough</button>
             </div>

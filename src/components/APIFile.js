@@ -98,6 +98,19 @@ export const createWalkthrough = (walkthrough, setError) => {
 
 // }
 
+export const updateWalkthrough = (params, walkthrough, setError) => {
+    fetch(`${url}walkthroughs/${params.id}/`, {
+        method: 'PATCH',
+        headers: {
+            Authorization: `Token ${token}`
+        },
+        body: walkthrough
+    })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch(() => setError(true))
+}
+
 export const addSlide = () => {
 
 }
