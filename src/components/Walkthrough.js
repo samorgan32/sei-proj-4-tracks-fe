@@ -10,6 +10,7 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
 
     const [error, setError] = useState(false);
 
+
     useEffect(() => {
         api.showWalkthroughs(setWalkthroughs, setError);
     }, []);
@@ -19,9 +20,6 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
         setActiveWalkthrough(event.target.id)
     }
 
-    const handleEdit = (event) => {
-
-    }
 
 
 
@@ -36,38 +34,41 @@ const Walkthrough = ({ walkthroughs, setWalkthroughs, setActiveWalkthrough }) =>
                 <Button>Create New Walkthrough</Button>
             </Link>
 
+            <div className='walkthroughs'>
 
-            {walkthroughs.map((card) => {
-                return (
-                    <div>
-
-
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={card.cover_slide} />
-                            <Card.Body>
-                                <Card.Title>{card.title}</Card.Title>
-                                <Card.Text>
-                                    Created: {card.date_created}
-                                </Card.Text>
-                                <Link
-                                    to='/walkthroughs/view'
-                                    onClick={handleClick}
-                                >
-                                    <Button id={card.id} variant="primary">View Walkthrough</Button>
-                                </Link>
-                                <Link to={`/walkthroughs/edit/${card.id}`}>
-                                    <Button>
-                                        Edit Walkthrough
-                                    </Button>
-                                </Link>
-                            </Card.Body>
-                        </Card>
-
-                    </div>
-                )
+                {walkthroughs.map((card) => {
+                    return (
+                        <div>
 
 
-            })}
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={card.cover_slide} />
+                                <Card.Body>
+                                    <Card.Title>{card.title}</Card.Title>
+                                    <Card.Text>
+                                        Created: {card.date_created}
+                                    </Card.Text>
+                                    <Link
+                                        to='/walkthroughs/view'
+                                        onClick={handleClick}
+                                    >
+                                        <Button id={card.id} variant="primary">View Walkthrough</Button>
+                                    </Link>
+                                    <Link to={`/walkthroughs/edit/${card.id}`}>
+                                        <Button>
+                                            Edit Walkthrough
+                                        </Button>
+                                    </Link>
+                                </Card.Body>
+                            </Card>
+
+                        </div>
+                    )
+
+
+                })}
+            </div>
+
 
 
         </div >

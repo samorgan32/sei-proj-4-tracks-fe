@@ -20,7 +20,8 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
     const handleShow = () => setShow(true)
     const [slideDelete, setSlideDelete] = useState({})
 
-    const url = 'http://localhost:8000/';
+    // const url = 'http://localhost:8000/'
+    const url = 'https://floating-castle-18483.herokuapp.com/'
 
     const token = localStorage.getItem('token')
 
@@ -107,33 +108,37 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
                 </Modal>
             </div>
 
+            <div>
 
-            {!walkthroughDetail.slides ? <h2>No Slides Available</h2> : (
-                <div>
 
-                    {walkthroughDetail.slides.map((slide) => {
-                        return (
-                            <div>
+                {!walkthroughDetail.slides ? <h2>No Slides Available</h2> : (
+                    <div className='walkthroughs'>
 
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Body>
-                                        <Card.Title>Slide {slide.position}</Card.Title>
-                                        <Card.Img variant="top" src={slide.image} />
-                                        <Card.Text>
-                                            {slide.description}
-                                        </Card.Text>
-                                        <SlideEdit />
-                                        <Button variant="primary" id={slide.id} onClick={selectSlideDelete}>Delete Slide</Button>
-                                    </Card.Body>
-                                </Card>
+                        {walkthroughDetail.slides.map((slide) => {
+                            return (
+                                <div>
 
-                            </div>
-                        )
-                    })}
+                                    <Card style={{ width: '18rem' }}>
+                                        <Card.Body>
+                                            <Card.Title>Slide {slide.position}</Card.Title>
+                                            <Card.Img variant="top" src={slide.image} />
+                                            <Card.Text>
+                                                {slide.description}
+                                            </Card.Text>
+                                            <SlideEdit />
+                                            <Button variant="primary" id={slide.id} onClick={selectSlideDelete}>Delete Slide</Button>
+                                        </Card.Body>
+                                    </Card>
 
-                </div>
+                                </div>
+                            )
+                        })}
 
-            )}
+                    </div>
+
+                )}
+            </div>
+
 
             <div>
 

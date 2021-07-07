@@ -23,7 +23,7 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
 
             {!view.slides ? <h2>No slides available</h2> : (
 
-                <Carousel interval={null}>
+                <Carousel className='carousel' interval={null}>
                     {view.slides.map((slide) => {
                         return (
                             <Carousel.Item>
@@ -32,7 +32,7 @@ const ViewWalkthrough = ({ activeWalkthrough, setView, view }) => {
                                     src={slide.image}
                                     alt={`slide# ${slide.postion}`}
                                 />
-                                <Carousel.Caption>
+                                <Carousel.Caption id='slide-caption'>
                                     <h3>slide# {slide.position}</h3>
                                     <p>{slide.description}</p>
                                 </Carousel.Caption>

@@ -21,7 +21,7 @@ function App() {
   const [activeUser, setActiveUser] = useState('')
 
   return (
-    <div className="App">
+    <main className="container">
 
 
       <Nav />
@@ -74,7 +74,7 @@ function App() {
 
 
 
-    </div>
+    </main>
   );
 }
 

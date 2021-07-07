@@ -1,4 +1,5 @@
-const url = 'http://localhost:8000/';
+// const url = 'http://localhost:8000/'
+const url = 'https://floating-castle-18483.herokuapp.com/'
 
 const token = localStorage.getItem('token')
 
