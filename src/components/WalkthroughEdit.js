@@ -22,14 +22,6 @@ const WalkthroughEdit = ({ walkthroughs, setWalkthroughs }) => {
         api.editWalkthrough(params, setWalkthroughDetail, setError);
     }, []);
 
-    console.log(walkthroughDetail)
-
-    // const handleDelete = async (event) => {
-    //     event.preventDefault()
-    //     await api.deleteWalkthrough(params, setError)
-    //     history.push('/walkthroughs')
-    // }
-
     const walkthroughDelete = (history, setError) => {
         fetch(`${url}walkthroughs/${params.id}`, {
             method: 'DELETE',

@@ -13,7 +13,8 @@ const SignUpForm = ({ user, setUser }) => {
 
     const handleSignUp = (event) => {
         event.preventDefault()
-        if (user.password === user.confirm) {
+        if (user.password === user.re_password) {
+            const formData = new FormData(event.target)
             api.signUp(user, setError)
             history.push('/login')
         } else {
@@ -29,8 +30,10 @@ const SignUpForm = ({ user, setUser }) => {
                     <input id='email' type='text' onChange={handleChange} />
                     <label htmlFor='password'>Password</label>
                     <input id='password' type='text' onChange={handleChange} />
-                    <label htmlFor='Confirm password'> Confirm Password</label>
-                    <input id='confirm' onChange={handleChange} type='text' />
+                    <label htmlFor='re_password'> Confirm Password</label>
+                    <input id='re_password' onChange={handleChange} type='text' />
+                    <label htmlFor='username'> Username</label>
+                    <input id='username' onChange={handleChange} type='text' />
                     <button type='submit' className='submit-button'>
                         submit
                     </button>

@@ -15,7 +15,7 @@ function App() {
   const [walkthroughs, setWalkthroughs] = useState([])
   const [activeWalkthrough, setActiveWalkthrough] = useState({})
   const [view, setView] = useState({})
-  const [user, setUser] = useState({ email: '', password: '' })
+  const [user, setUser] = useState({ email: '', password: '', re_password: '', username: '' })
   const [activeUser, setActiveUser] = useState('')
 
   return (

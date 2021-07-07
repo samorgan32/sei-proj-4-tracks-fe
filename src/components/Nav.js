@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
+
+    const logout = () => {
+        localStorage.clear()
+    }
+
     return (
         <>
             <h1>trail</h1>
@@ -9,7 +14,7 @@ const Nav = () => {
                 <Link to='/walkthroughs'>Home</Link>
                 <Link>My Portfolio</Link>
                 <Link>Login</Link>
-                <Link>Logout</Link>
+                <Link to='/login' onClick={logout}>Logout</Link>
             </ul>
         </>
     );

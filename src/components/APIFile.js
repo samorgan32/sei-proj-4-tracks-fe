@@ -3,10 +3,10 @@ const url = 'http://localhost:8000/';
 const token = localStorage.getItem('token')
 
 export const signUp = (user, setError) => {
-    fetch(`${url}users`, {
+    fetch(`${url}users/`, {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
+            'Content-type': 'application/json; charset=UTF-8'
         },
         body: JSON.stringify(user),
     })
